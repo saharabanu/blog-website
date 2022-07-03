@@ -185,7 +185,21 @@ overflow: hidden;
 }
 
 
+/* advertise  */
+.advertise{
+  background-image: linear-gradient(to right, rgba(217, 217, 229, 0.7), rgba(226, 226, 244, 0.7)),url('./assets/Gallery/galley-img1.jpg');
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  padding-top: 180px ;
+  height:80vh;
+}
+
+
 /* about   */
+
+
+
 /* .vision{
   position: relative;
 } */
