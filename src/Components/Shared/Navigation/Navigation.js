@@ -29,6 +29,20 @@ const Navigation = () => {
               </NavLink>
               <NavLink
                 className="nav-items"
+                to="/about"
+                style={({ isActive }) => (isActive ? navStyle : null)}
+              >
+                About Me
+              </NavLink>
+              <NavLink
+                className="nav-items"
+                to="/contact"
+                style={({ isActive }) => (isActive ? navStyle : null)}
+              >
+                Contact Me
+              </NavLink>
+              <NavLink
+                className="nav-items"
                 as={HashLink}
                 to="/home#blogs"
                 style={({ isActive }) => (isActive ? navStyle : null)}

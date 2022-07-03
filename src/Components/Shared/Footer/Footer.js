@@ -6,7 +6,7 @@ import RecentPosts from "../../Client/Pages/BlogSidebar/RecentPosts/RecentPosts"
 const Footer = () => {
   return (
     <div className="">
-      {/* <ScrollToTop smooth top="50" color="#4abd00"/> */}
+      {/* <ScrollToTop smooth top="50" color="#4abd00" /> */}
       <div className="container footer">
         <div className="row g-4">
           <div className="col-md-4">

@@ -5,6 +5,7 @@ import avatar from "../../../../assets/avatar.jpg";
 import Footer from "../../../Shared/Footer/Footer";
 
 import Navigation from "../../../Shared/Navigation/Navigation";
+import Comment from "../Comment/Comment";
 
 const SingleBlog = () => {
   const { id } = useParams();
@@ -53,6 +54,11 @@ const SingleBlog = () => {
             </div>
           </div>
         </div>
+      </div>
+
+      <div className="container">
+        <h3 className="pt-5 pb-2">Leave a Reply</h3>
+        <Comment />
       </div>
       <Footer />
     </div>

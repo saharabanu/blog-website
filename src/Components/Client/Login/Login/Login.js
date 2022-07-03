@@ -15,7 +15,7 @@ const Login = () => {
       <Navigation />
       <div>
         <div className="login-header">
-          <h2 className="text-center fw-bold ">My Account</h2>
+          <h2 className="text-center fw-bold text-white">My Account</h2>
         </div>
         <div className="container user-login">
           <div className="border mt-4 shadow rounded py-5">

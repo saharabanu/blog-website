@@ -3,8 +3,7 @@ import Author from "../Author/Author";
 import Gallery from "../Gallery/Gallery";
 import RecentPosts from "../RecentPosts/RecentPosts";
 
-const BlogSidebar = ({ blog }) => {
-  console.log(blog);
+const BlogSidebar = () => {
   return (
     <>
       <Author />
