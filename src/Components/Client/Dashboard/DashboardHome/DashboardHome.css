@@ -1,5 +1,5 @@
 .dashboardNav {
-    background: #9932cc;
+    background: #cb81f0;
     border-bottom: 1px solid #fff;
     padding: 0 20px;
     height: 10vh;
@@ -9,16 +9,28 @@
     display: grid;
     grid-template-columns: 1fr 6fr;
     color: #fff;
-    height: 90vh;
+    height: 100vh;
     background: #f0f5f9;
   }
   aside {
-    background: #9932cc;
+    background: #cb81f0;
   }
-  .bodyContent {
+  /* .bodyContent {
     color: #000;
     display: grid;
     justify-content: center;
     align-items: center;
+  } */
+
+  @media only screen and (max-width: 786px) {
+  
+    .dashboardBody {
+      display: grid;
+      grid-template-columns: 1fr ;
+      color: #fff;
+      height: 90vh;
+      background: #f0f5f9;
+    }
+    
   }
   

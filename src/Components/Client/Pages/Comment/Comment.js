@@ -7,50 +7,50 @@ const Comment = () => {
         {/* <h5 className="pb-3">Contact Me!</h5> */}
         <form className="row g-3">
           <div className="col-md-6">
-            <label for="firstName" className="form-label">
+            <label for="Name" className="form-label">
               Your Name
             </label>
             <input
               type="text"
               className="form-control"
-              id="firstName"
+              id="Name"
               required
               style={{ outline: "none", backgroundColor: "#f7f8f9" }}
             />
           </div>
           <div className="col-md-6">
-            <label for="lastName" className="form-label">
+            <label for="email" className="form-label">
               Your Email
             </label>
             <input
               type="email"
               className="form-control"
-              id="lastName"
+              id="email"
               required
               style={{ outline: "none", backgroundColor: "#f7f8f9" }}
             />
           </div>
           <div className="col-md-6">
-            <label for="emailInfo" className="form-label">
+            <label for="number" className="form-label">
               Your Number
             </label>
             <input
               type="number"
               className="form-control"
-              id="emailInfo"
+              id="number"
               required
               style={{ outline: "none", backgroundColor: "#f7f8f9" }}
             />
           </div>
           <div className="col-md-6">
-            <label for="phoneNumber" className="form-label">
+            <label for="subject" className="form-label">
               Subject
             </label>
             <input
               type="text"
               className="form-control"
-              id="phoneNumber"
-              placeholder="+1 (415) 867-5309"
+              id="subject"
+              placeholder=""
               style={{ outline: "none", backgroundColor: "#f7f8f9" }}
             />
           </div>

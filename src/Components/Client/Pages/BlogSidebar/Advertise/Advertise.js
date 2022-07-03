@@ -1,5 +1,4 @@
 import React from "react";
-import addvertise from "../../../../../assets/Gallery/galley-img1.jpg";
 
 const Advertise = () => {
   return (

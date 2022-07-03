@@ -1,6 +1,6 @@
 import React from "react";
 import "./DashboardHome.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink, useNavigate, Outlet } from "react-router-dom";
 
 const DashboardHome = () => {
   const navigate = useNavigate();
@@ -22,15 +22,27 @@ const DashboardHome = () => {
                 Dashboard
               </NavLink>
               <div className="py-2"></div>
-              <NavLink to="/dashboard" className="text-white " style={{ textDecoration: "none" }}>
+              <NavLink
+                to={`/dashboard/addBlog`}
+                className="text-white "
+                style={{ textDecoration: "none" }}
+              >
                 Add New Blog
               </NavLink>
               <div className="py-2"></div>
-              <NavLink to="/dashboard" className="text-white " style={{ textDecoration: "none" }}>
+              <NavLink
+                to={`/dashboard/manageBlog`}
+                className="text-white "
+                style={{ textDecoration: "none" }}
+              >
                 Manage Blog
               </NavLink>
               <div className="py-2"></div>
-              <NavLink to="/dashboard" className="text-white" style={{ textDecoration: "none" }}>
+              <NavLink
+                to={`/dashboard/makeAdmin`}
+                className="text-white"
+                style={{ textDecoration: "none" }}
+              >
                 Add New Admin
               </NavLink>
               <div></div>
@@ -43,8 +55,9 @@ const DashboardHome = () => {
               </button>
             </div>
           </aside>
-          <main className="bodyContent">
+          <main className="bodyContent pt-5 text-dark ">
             <h1>Welcome to Fashion Blog Admin</h1>
+            <Outlet />
           </main>
         </div>
       </div>

@@ -51,7 +51,7 @@ const Navigation = () => {
               </NavLink>
             </Nav>
             <Nav>
-              <NavLink className="nav-login" to="/login">
+              <NavLink className="nav-login " to="/login">
                 Login
               </NavLink>
             </Nav>
