@@ -1,11 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import RecentPosts from "../../Client/Pages/BlogSidebar/RecentPosts/RecentPosts";
 // import ScrollToTop from "react-scroll-to-top";
 
 const Footer = () => {
+  const handleClick = () => {
+    window.scroll({
+      top: 10,
+      right: 10,
+      behavior: "smooth",
+    });
+  };
+  // window.scroll({
+  //   top: 100,
+  //   left: 100,
+  //   behavior: "smooth",
+  // });
   return (
     <div className="">
+      <button onClick={handleClick} className="scroll-btn">
+        <i className="fa-solid fa-arrow-up scroll-icon"></i>{" "}
+      </button>
       {/* <ScrollToTop smooth top="50" color="#4abd00" /> */}
       <div className="container footer">
         <div className="row g-4">
@@ -58,7 +72,24 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-md-3 ">
-            <RecentPosts />
+            <h4>Information</h4>
+            <div>
+              <Link to="/about" className="link ">
+                About Me
+              </Link>
+              <br /> <br />
+              <Link to="/contact" className="link ">
+                Contact Me
+              </Link>
+              <br /> <br />
+              <Link to="/login" className="link ">
+                Login
+              </Link>
+              <br /> <br />
+              <Link to="/home#blogs" className="link ">
+                Blogs
+              </Link>
+            </div>
           </div>
           <div className="col-md-3 ">
             <h4>Social Links</h4>

@@ -1,5 +1,4 @@
-import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { useParams } from "react-router-dom";
 import avatar from "../../../../assets/avatar.jpg";
 import Footer from "../../../Shared/Footer/Footer";
@@ -20,8 +19,8 @@ const SingleBlog = () => {
   //     setSingleBlog(foundBlog);
   //   });
   // }, [id]);
-  const foundBlog = data.filter((detail) => detail.id !== id);
-  const { title, desc1, author, image, desc2, category, date, desc3 } = foundBlog[0] || {};
+  const foundBlog = data.filter((detail) => detail.id == id);
+  const { title, desc1, author, image, desc2, category, date, desc3 } = foundBlog[0];
 
   return (
     <div>

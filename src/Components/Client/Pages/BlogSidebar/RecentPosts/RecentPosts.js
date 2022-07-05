@@ -1,5 +1,4 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { Link } from "react-router-dom";
 import data from "../../../../../database/blogsData.json";
 
@@ -19,7 +18,7 @@ const RecentPosts = () => {
 
       <div className="">
         <div className="row">
-          {data.slice(8, 10)?.map((blog) => (
+          {data.slice(8, 11)?.map((blog) => (
             <div className="col-md-12" key={blog.id}>
               <div className="d-flex border mb-3 pt-3 justify-content-start align-items-center">
                 <div className="w-50">
