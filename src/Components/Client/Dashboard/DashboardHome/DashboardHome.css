@@ -1,19 +1,21 @@
 .dashboardNav {
-    background: #cb81f0;
+    /* background: #000; */
     border-bottom: 1px solid #fff;
     padding: 0 20px;
     height: 10vh;
+    color:#fff;
   }
   
   .dashboardBody {
     display: grid;
     grid-template-columns: 1fr 6fr;
-    color: #fff;
     height: 100vh;
-    background: #f0f5f9;
+   
+    background: #f0f5f9 !important;
   }
   aside {
-    background: #cb81f0;
+    background: #000;
+    color:#fff
   }
   /* .bodyContent {
     color: #000;
@@ -28,7 +30,7 @@
       display: grid;
       grid-template-columns: 1fr ;
       color: #fff;
-      height: 90vh;
+      height: 100%;
       background: #f0f5f9;
     }
     

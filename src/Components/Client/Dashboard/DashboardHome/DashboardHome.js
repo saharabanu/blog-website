@@ -1,8 +1,13 @@
 import React from "react";
 import "./DashboardHome.css";
 import { NavLink, useNavigate, Outlet } from "react-router-dom";
+import { useParams } from "react-router-dom";
+import AddBlog from "../AddBlog/AddBlog";
+import ManageBlogs from "../ManageBlogs/ManageBlogs";
+import MakeAdmin from "../MakeAdmin/MakeAdmin";
 
 const DashboardHome = () => {
+  const { dash } = useParams();
   const navigate = useNavigate();
   const handleLogout = () => {
     navigate("/");
@@ -56,8 +61,17 @@ const DashboardHome = () => {
             </div>
           </aside>
           <main className="bodyContent pt-5 text-dark ">
-            <h1>Welcome to Fashion Blog Admin</h1>
-            <Outlet />
+            {dash == undefined ? (
+              <h1>Welcome to Fashion Blog Admin</h1>
+            ) : dash == "addBlog" ? (
+              <AddBlog />
+            ) : dash == "manageBlog" ? (
+              <ManageBlogs />
+            ) : dash == "makeAdmin" ? (
+              <MakeAdmin />
+            ) : (
+              ""
+            )}
           </main>
         </div>
       </div>

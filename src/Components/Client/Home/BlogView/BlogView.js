@@ -1,8 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const BlogView = (props) => {
-  const { id, image, title, category, desc1 } = props.blog;
+const BlogView = ({ blog }) => {
+  const { id, image, title, category, desc1 } = blog;
   return (
     <>
       <div className="col-md-12">

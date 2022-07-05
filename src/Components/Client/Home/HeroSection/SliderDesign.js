@@ -6,9 +6,9 @@ const SliderDesign = ({ text, img, category }) => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 col-sm-6">
-            <div className="hero-part1">
-              <h2>{category}</h2>
-              <h3>{text}</h3>
+            <div className="hero-part1 text-white">
+              <h3>{category}</h3>
+              <h1>{text}</h1>
               <button className="hero-btn"> Read More</button>
             </div>
           </div>

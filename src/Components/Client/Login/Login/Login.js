@@ -17,14 +17,14 @@ const Login = () => {
         <div className="login-header">
           <h2 className="text-center fw-bold text-white">My Account</h2>
         </div>
-        <div className="container user-login">
-          <div className="border mt-4 shadow rounded py-5">
+        <div className="container user-login bg-light">
+          <div className="border shadow rounded pt-5 my-4 ">
             <div className="row container">
               <div className="col-md-6">
                 <h2 className="pb-3 ms-5">Log In</h2>
                 <div className="login-part ms-5">
                   <div className="user_login-input">
-                    <label className="d-block fw-bold">Email</label>
+                    <label className="d-block fw-bold text-muted">Email</label>
                     <input
                       type="email"
                       placeholder="Enter Your Email"
@@ -34,7 +34,7 @@ const Login = () => {
                     />
                   </div>
                   <div className="user_login-input">
-                    <label className="d-block fw-bold">Password</label>
+                    <label className="d-block fw-bold text-muted">Password</label>
                     <input
                       type="password"
                       placeholder="Enter Password"

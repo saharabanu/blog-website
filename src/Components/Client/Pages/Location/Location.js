@@ -4,7 +4,7 @@ const Location = () => {
   return (
     <>
       <div className="container">
-        <div className="row pt-5">
+        <div className="row pt-5 text-white">
           <div className="col-md-5">
             <h3>Get In Touch And Contact Now To Reach !</h3>
           </div>
@@ -18,12 +18,13 @@ const Location = () => {
         </div>
         <div className="row">
           <div className="col-md-4">
-            <div className="row">
-              <div className="col-md-5">
+            <div className="row ">
+              <div className="col-md-5 ">
                 <lottie-player
                   src="https://assets9.lottiefiles.com/private_files/lf30_kxkxycqz.json"
                   background="transparent"
                   speed="1"
+                  className="lotti-img"
                   style={{ width: "100%", height: "300px" }}
                   loop
                   autoplay
@@ -70,7 +71,7 @@ const Location = () => {
                 ></lottie-player>
               </div>
               <div className="col-md-7 ">
-                <div className="location">
+                <div className="location ">
                   <h4>Phone Numbers</h4>
                   <p>(+977)-1234-567-55 / (+977)-123-567-87</p>
                 </div>

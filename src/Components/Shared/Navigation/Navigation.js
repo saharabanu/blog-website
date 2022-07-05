@@ -14,7 +14,7 @@ const Navigation = () => {
     <>
       <Navbar bg="" expand="lg" sticky="top" className="header-full">
         <Container>
-          <Navbar.Brand href="/" className="text-dark logo">
+          <Navbar.Brand href="/" className="text-white logo">
             Fashion Blog
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="" />

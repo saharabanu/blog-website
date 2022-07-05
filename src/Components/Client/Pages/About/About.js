@@ -16,7 +16,7 @@ const About = () => {
       <div className="container">
         <div className="row ">
           <div className="col-md-6">
-            <div className="pt-5 ">
+            <div className="pt-5 text-white">
               <h2 className="pb-3">A Better Platform To Showcase Your Insights And Blog !</h2>
               <p>
                 Vel aliquip felis duis quidem consectetur libero placeat tellus scelerisque litora
@@ -40,7 +40,9 @@ const About = () => {
         <div className="pb-3">
           <Counter />
         </div>
-        <div className="py-5">{/* <AboutVision /> */}</div>
+        <div className="py-5">
+          <AboutVision />
+        </div>
       </div>
       <Footer />
     </>

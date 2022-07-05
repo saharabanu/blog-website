@@ -12,7 +12,7 @@ const SignUp = () => {
           <h2 className="text-center fw-bold text-white">My Account</h2>
         </div>
         <div className="container user-login">
-          <div className="border mt-4 shadow rounded py-5">
+          <div className="border my-4 shadow rounded pt-5 bg-light">
             <div className="row">
               <div className="col-md-6">
                 <lottie-player

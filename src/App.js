@@ -27,7 +27,7 @@ function App() {
   return (
     <div className="App">
       {loading ? (
-        <div className="text-center pt-5 ">
+        <div className="text-center loading">
           <BeatLoader
             // cssOverride={override}
             size={30}
@@ -47,11 +47,12 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/signUp" element={<SignUp />} />
 
-            <Route path="/dashboard" element={<Dashboard />}>
-              <Route path={`/dashboard/manageBlog`} element={<ManageBlogs />} />
+            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard/:dash" element={<Dashboard />} />
+            {/* <Route path={`/dashboard/manageBlog`} element={<ManageBlogs />} />
               <Route path={`/dashboard/addBlog`} element={<AddBlog />} />
-              <Route path={`/dashboard/makeAdmin`} element={<MakeAdmin />} />
-            </Route>
+              <Route path={`/dashboard/makeAdmin`} element={<MakeAdmin />} /> */}
+
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>

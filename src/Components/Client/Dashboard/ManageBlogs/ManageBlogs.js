@@ -2,21 +2,22 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import Spinner from "react-bootstrap/Spinner";
 import { Link } from "react-router-dom";
+import data from "../../../../database/blogsData.json";
 
 const ManageBlogs = () => {
-  const [blogs, setBlogs] = useState([]);
+  // const [blogs, setBlogs] = useState([]);
 
-  useEffect(() => {
-    axios.get("/blogsData.json").then((res) => {
-      console.log(res.data);
-      setBlogs(res.data);
-    });
-  }, []);
+  // useEffect(() => {
+  //   axios.get("/blogsData.json").then((res) => {
+  //     console.log(res.data);
+  //     setBlogs(res.data);
+  //   });
+  // }, []);
   return (
     <>
       <div className="row container g-4">
-        {blogs.length ? (
-          blogs.map((blog) => (
+        {data.length ? (
+          data.map((blog) => (
             <div className="col-md-4 px-5" key={blog.id}>
               <div className="blog-container border">
                 <div className="position-relative">

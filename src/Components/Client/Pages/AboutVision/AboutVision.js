@@ -7,7 +7,7 @@ const AboutVision = () => {
       <div className="vision">
         <div className="row">
           <div className="col-md-4">
-            <div className="bg-white p-5 about-mision-tex1">
+            <div className="bg-white about-mision-tex1">
               <h3>My Vision .....</h3>
               <p>
                 Vel aliquip felis duis quidem consectetur libero placeat tellus scelerisque litora
@@ -24,7 +24,7 @@ const AboutVision = () => {
             </div>
           </div>
           <div className="col-md-4">
-            <div className="bg-white p-5 about-mision-tex2">
+            <div className="bg-white  about-mision-tex2">
               <h3>My Mision .....</h3>
               <p>
                 Vel aliquip felis duis quidem consectetur libero placeat tellus scelerisque litora
