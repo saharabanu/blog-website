@@ -14,6 +14,7 @@ import Contact from "./Components/Client/Pages/Contact/Contact";
 import ManageBlogs from "./Components/Client/Dashboard/ManageBlogs/ManageBlogs";
 import AddBlog from "./Components/Client/Dashboard/AddBlog/AddBlog";
 import MakeAdmin from "./Components/Client/Dashboard/MakeAdmin/MakeAdmin";
+import AuthProvider from "./Components/contexts/AuthProvider";
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -37,6 +38,7 @@ function App() {
           />
         </div>
       ) : (
+        <AuthProvider>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -56,6 +58,7 @@ function App() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
+        </AuthProvider>
       )}
     </div>
   );

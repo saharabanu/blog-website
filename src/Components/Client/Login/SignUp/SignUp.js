@@ -1,9 +1,33 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useRef } from "react";
+import { Alert } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import useAuth from "../../../Hooks/useAuth";
 import Footer from "../../../Shared/Footer/Footer";
 import Navigation from "../../../Shared/Navigation/Navigation";
 
 const SignUp = () => {
+  const navigate = useNavigate();
+  const {user,registerUser,isLoading,error} = useAuth();
+  const emailRef = useRef();
+  const psdRef = useRef();
+  const nameRef = useRef();
+  const handleSubmit = (e) => {
+    const email = emailRef.current.value;
+    const password = psdRef.current.value;
+    const name = nameRef.current.value;
+    const data = {
+      name,
+      email,
+      password,
+    };
+    // if(data.password !== data.password2){
+    //   alert('Your password does not match')
+    //   return
+    // }
+    e.preventDefault();
+    registerUser(data.email,data.password,data.name,navigate);
+    console.log(data);
+  };
   return (
     <>
       <Navigation />
@@ -26,58 +50,68 @@ const SignUp = () => {
               </div>
               <div className="col-md-6 ps-5">
                 <h2>Sign Up</h2>
-                <div className="login-part">
-                  <div className="user_login-input">
-                    <label className="d-block fw-bold">Name</label>
-                    <input
-                      type="text"
-                      placeholder="Enter Your Name"
-                      name="name"
-                      className="px-2 py-1 mb-2"
-                      style={{ outline: "none" }}
-                    />
-                  </div>
-                  <div className="user_login-input">
-                    <label className="d-block fw-bold">Email</label>
-                    <input
-                      type="email"
-                      placeholder="Enter Your Email"
-                      name="email"
-                      className="px-2 py-1 mb-2"
-                      style={{ outline: "none" }}
-                    />
-                  </div>
-                  <div className="user_login-input">
-                    <label className="d-block fw-bold">Password</label>
-                    <input
-                      type="password"
-                      placeholder="Enter Password"
-                      name="password"
-                      className="px-2 py-1 mb-2"
-                      style={{ outline: "none" }}
-                    />
-                  </div>
+                <form onSubmit={handleSubmit}>
+                  <div className="login-part">
+                    <div className="user_login-input">
+                      <label className="d-block fw-bold">Name</label>
+                      <input
+                        type="text"
+                        placeholder="Enter Your Name"
+                        name="name"
+                        required ={true}
+                        ref={nameRef}
+                        className="px-2 py-1 mb-2"
+                        style={{ outline: "none" }}
+                      />
+                    </div>
+                    <div className="user_login-input">
+                      <label className="d-block fw-bold">Email</label>
+                      <input
+                        type="email"
+                        placeholder="Enter Your Email"
+                        name="email"
+                        ref={emailRef}
+                        required ={true}
+                        className="px-2 py-1 mb-2"
+                        style={{ outline: "none" }}
+                      />
+                    </div>
+                    <div className="user_login-input">
+                      <label className="d-block fw-bold">Password</label>
+                      <input
+                        type="password"
+                        placeholder="Enter Password"
+                        name="password"
+                        ref={psdRef}
+                        required ={true}
+                        className="px-2 py-1 mb-2"
+                        style={{ outline: "none" }}
+                      />
+                    </div>
 
-                  <div className="user_login-input">
-                    <input
-                      type="submit"
-                      value="Sign Up"
-                      className="notfound-btn"
-                      style={{ border: 0 }}
-                    />
-                  </div>
+                    <div className="user_login-input">
+                      <input
+                        type="submit"
+                        value="Sign Up"
+                        className="notfound-btn"
+                        style={{ border: 0 }}
+                      />
+                    </div>
 
-                  <div className="mt-4 d-flex align-items-center justify-content-between">
-                    {/* <span className="border-bottom w-25"></span> */}
-                    <p className="text-xs text-gray-500 uppercase">
-                      Already have an Account{" "}
-                      <Link to="/login" style={{ color: "#9932cc" }}>
-                        {" "}
-                        <span>Sign In</span>
-                      </Link>{" "}
-                    </p>
+                    <div className="mt-4 d-flex align-items-center justify-content-between">
+                      {/* <span className="border-bottom w-25"></span> */}
+                      <p className="text-xs text-gray-500 uppercase">
+                        Already have an Account{" "}
+                        <Link to="/login" style={{ color: "#9932cc" }}>
+                          {" "}
+                          <span>Sign In</span>
+                        </Link>{" "}
+                      </p>
+                    </div>
                   </div>
-                </div>
+                </form>
+                {user?.email && <Alert
+      variant="success">Create user successfully</Alert>}
               </div>
             </div>
           </div>
