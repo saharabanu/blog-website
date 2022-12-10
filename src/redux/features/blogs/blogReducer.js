@@ -1,4 +1,4 @@
-import { ADD_CONTENT, DELETE_CONTENT, ERROR, GET_CONTENT, GET_SINGLE_CONTENT, LOADED } from "./blogActionTypes";
+import { ADD_CONTENT, DELETE_CONTENT, ERROR, GET_CONTENT, GET_SINGLE_CONTENT, LOADED, UPDATE_CONTENT } from "./blogActionTypes";
 import { blogInitialState } from "./blogInitialState";
 
 const blogReducer = (state= blogInitialState, action) =>{
@@ -30,19 +30,17 @@ const blogReducer = (state= blogInitialState, action) =>{
               ...state,
               blogs:[...state.blogs, action.payload]
             };
-        // add blog reducer action
+        // delete blog reducer action
         case DELETE_CONTENT:
             return{
               ...state,
               blogs: state.blogs.filter(blog => blog._id !== action.payload)
             };
-            
-        // get blog reducer action
-        case GET_SINGLE_CONTENT:
-            return{
-              ...state,
-            //   blogs: state.blogs.filter(blog => blog._id !== action.payload.id)
-              blogs:state.blogs.map(blog => {
+        // edit blog reducer action
+        case UPDATE_CONTENT:
+          return {
+            ...state,
+            blogs: state.blogs.map(blog => {
                 if(blog._id !== action.payload.id){
                     return blog;
                 }
@@ -50,11 +48,10 @@ const blogReducer = (state= blogInitialState, action) =>{
                     ...state,
                     blogs: action.payload.id
                 }
-              })
-            };
+            }),
             
-           
-    
+        };
+            
         default:
             return state
     }

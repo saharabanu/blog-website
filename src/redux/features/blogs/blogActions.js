@@ -1,4 +1,4 @@
-import { ADD_CONTENT, DELETE_CONTENT, GET_CONTENT, GET_SINGLE_CONTENT, LOADED } from "./blogActionTypes"
+import { ADD_CONTENT, DELETE_CONTENT, GET_CONTENT, GET_SINGLE_CONTENT, LOADED, UPDATE_CONTENT } from "./blogActionTypes"
 
 
 // fetch loaded action function 
@@ -18,15 +18,7 @@ export const getBlog = (blog) => {
 };
 // get blog action function 
 
-export const getSingleBlog = ( blog,id) => {
-    return {
-        type:GET_SINGLE_CONTENT,
-        payload: {
-            blog, 
-            id
-        }
-    }
-};
+
 // add blog action function 
 
 export const addBlog = ( blog) => {
@@ -41,5 +33,16 @@ export const deleteBlog = ( id) => {
     return {
         type:DELETE_CONTENT,
         payload: id
+    }
+};
+// edit blog action function 
+
+export const editBlog = ( id, blog) => {
+    return {
+        type:UPDATE_CONTENT,
+        payload: {
+            id, 
+            blog
+        }
     }
 };

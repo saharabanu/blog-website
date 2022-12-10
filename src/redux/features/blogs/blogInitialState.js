@@ -1,5 +1,6 @@
 export const blogInitialState = {
     blogs:[],
     loading: false,
-    error: false
+    error: false,
+    
 }

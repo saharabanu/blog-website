@@ -1,4 +1,4 @@
-import { CLEAR_FILTER, FILTER_BY_CATEGORY, FILTER_BY_TITLE } from "./filtersActionTypes"
+import { CLEAR_FILTER, FILTER_BY_CATEGORY, FILTER_BY_TITLE, FIRST_UPLOAD, LAST_UPLOAD } from "./filtersActionTypes"
 
 // filter by category action
 export const filterByCategory = (category) => {
@@ -12,6 +12,20 @@ export const filterByTitle = (title) => {
     return {
         type:FILTER_BY_TITLE,
         payload: title
+    }
+}
+// filter by title action
+export const sortByFirstUpload = (date) => {
+    return {
+        type:FIRST_UPLOAD,
+        payload: date
+    }
+}
+// filter by title action
+export const sortByLastUpload = (date) => {
+    return {
+        type:LAST_UPLOAD,
+        payload: date
     }
 }
 // clear filter action

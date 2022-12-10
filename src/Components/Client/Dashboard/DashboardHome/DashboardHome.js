@@ -1,6 +1,6 @@
 import React from "react";
 import "./DashboardHome.css";
-import { NavLink, useNavigate } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import AddBlog from "../AddBlog/AddBlog";
 import ManageBlogs from "../ManageBlogs/ManageBlogs";
@@ -8,10 +8,8 @@ import MakeAdmin from "../MakeAdmin/MakeAdmin";
 
 const DashboardHome = () => {
   const { dash } = useParams();
-  const navigate = useNavigate();
-  const handleLogout = () => {
-    navigate("/");
-  };
+  
+  
   return (
     <>
       <div className="dashboard">
@@ -52,7 +50,6 @@ const DashboardHome = () => {
               </NavLink> */}
               <div></div>
               <NavLink to="/"
-                onClick={handleLogout}
                 className="text-white "
                 style={{ border: 0 }}
               >

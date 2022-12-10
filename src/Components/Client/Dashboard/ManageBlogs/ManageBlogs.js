@@ -6,34 +6,60 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import data from "../../../../database/blogsData.json";
 import { deleteBlogThunk } from "../../../../redux/features/blogs/thunk/deleteBlogThunk";
+import { editBlogThunk } from "../../../../redux/features/blogs/thunk/editBlogThunk";
 import { getBlogThunk } from "../../../../redux/features/blogs/thunk/fetchBlogsThunk";
+import EditBlogModal from "../../../modal/EditBlogModal";
 
 const ManageBlogs = () => {
 
   const {blogs, loading, error} = useSelector(state => state.blogs);
-
+  const b = blogs.map(blog => blog);
+  console.log(b);
   const dispatch = useDispatch();
-  const [selectedProduct, setSelectedProduct] = useState([])
-    const [allProducts, setAllProducts] = useState({});
-    const [showupdatingMOdal, setShowupdatingMOdal] = useState(false);
-    const handleupdatingMOdalClose = () => setShowupdatingMOdal(false);
-    const handleupdatingMOdalShow = () => setShowupdatingMOdal(true);
+  const [editData, setEditData] = useState({});
+  const [show, setShow] = useState(false);
+
+  
+  const handleShow = (data) => {
+    setEditData(data)
+    setShow(true)
+};
+
+// const [show, setShow] = useState(false);
+
+const [editTitle, setEditTitle] = useState("");
+const {title,_id} = data[0];
+// console.log(title);
+const handleClose = () => setShow(false);
 
 
 //  get all blog data 
     useEffect(() => {
       dispatch(getBlogThunk())
-    }, [dispatch]);
+    }, [dispatch, editData]);
+
+    const handleSubmit = (e) => {
+      e.preventDefault();
+      
+      dispatch(editBlogThunk(_id,{
+            ...data[0],
+          title: editTitle,
+          
+          
+        }))
+      
+    console.log(data);
+      
+      setShow(false)
+    };
 
     // delete blog handler 
     const deleteBlogHandler = (id) => {
             dispatch(deleteBlogThunk(id))
     }
+    
 
-    const handleUpdateSubmit = (e) => {
-      e.preventDefault()
-
-    }
+    
     let content;
  
    if (loading) {
@@ -61,8 +87,7 @@ const ManageBlogs = () => {
       <Col md={2} xs={6}>
          
          <h5 className="my-2" >
-           {/* onClick={() => getProductUpdate(product._id)}  */}
-          <Button variant="outline-dark" className=" ms-3" >Update</Button></h5>
+          <Button variant="outline-dark" className=" ms-3" onClick={()=>handleShow(blog)}>Update</Button></h5>
       </Col>
       <Col md={1} xs={6}>
       
@@ -79,96 +104,41 @@ const ManageBlogs = () => {
   return (
     <>
      <div>
+    
             <Container className="">
 
-                <h4>All Blog</h4>
+                <h4>All Blogs</h4>
                 <Row className="heading g-0 py-3 mx-5">
-
-<Col md={3} xs={6}><h3 className="mb-0 fs-5 text-start ps-3">Title</h3></Col>
-
-<Col md={2} xs={6}><h3 className="mb-0 fs-5">Category</h3></Col>
-<Col md={3} xs={6}><h3 className="mb-0 fs-5">Author</h3></Col>
-<Col md={2} xs={6}><h3 className="mb-0  fs-5">Update</h3></Col>
-<Col md={2} xs={6}><h3 className="mb-0  fs-5 ">Delete</h3></Col>
+               <Col md={3} xs={6}><h3 className="mb-0 fs-5 text-start ps-3">Title</h3></Col>
+                <Col md={2} xs={6}><h3 className="mb-0 fs-5">Category</h3></Col>
+                <Col md={3} xs={6}><h3 className="mb-0 fs-5">Author</h3></Col>
+                <Col md={2} xs={6}><h3 className="mb-0  fs-5">Update</h3></Col>
+                <Col md={2} xs={6}><h3 className="mb-0  fs-5 ">Delete</h3></Col>
                </Row>
+             
                 {content}
             </Container>
-            <Modal show={showupdatingMOdal} onHide={handleupdatingMOdalClose} backdrop="static" keyboard={false}>
-                
-                <Modal.Body>
-                    <Form onSubmit={handleUpdateSubmit}>
-                        <Row className="mb-3">
-                            <Form.Group as={Col} md="12" className="mb-3" >
-                                <Form.Control
-                                    size="lg"
-
-                                    type="text"
-                                    defaultValue={selectedProduct.name}
-                                    name="name"
-                                    // onBlur={handleOnBlurProductForm}
-                                />
-                            </Form.Group>
-                            <Form.Group as={Col} md="12" className="mb-3" >
-                                <Form.Control
-                                    size="lg"
-
-                                    type="text"
-                                    defaultValue={selectedProduct.img}
-                                    name="img"
-                                    // onBlur={handleOnBlurProductForm}
-
-                                />
-                            </Form.Group>
-                            <Form.Group as={Col} md="12" className="mb-3" >
-                                <Form.Control
-                                    size="lg"
-
-                                    type="number"
-                                    defaultValue={selectedProduct.price}
-                                    min="0"
-                                    max="9999999"
-                                    name="price"
-                                    // onBlur={handleOnBlurProductForm}
-
-                                />
-                            </Form.Group>
-
-
-                        </Row>
-
-
-                        <Form.Group className="mb-3" as={Col} md="12" controlId="exampleForm.ControlTextarea1">
-
-                            <Form.Control as="textarea"
-                                rows={3}
-                                defaultValue={selectedProduct.description}
-                                name="description"
-                                // onBlur={handleOnBlurProductForm}
-
-                            />
-                        
-                        </Form.Group>
-                        <Form.Group className="mb-3" as={Col} md="12" controlId="exampleForm.ControlTextarea1">
-
-                            <Form.Control as="textarea"
-                                rows={3}
-                                defaultValue={selectedProduct.size}
-                                name="size"
-                                // onBlur={handleOnBlurProductForm}
-
-                            />
-                        
-                        </Form.Group>
-                        <p className="text-center my-3"> <Button type="submit" variant="danger" className="banner-btn"> Update Product</Button></p>
-                    </Form>
-                </Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleupdatingMOdalClose}>
-                        Close
-                    </Button>
-
-                </Modal.Footer>
-            </Modal>
+            <Modal
+        show={show}
+        onHide={handleClose}
+        backdrop="static"
+        keyboard={false}
+      >
+        <Modal.Header closeButton>
+          <Modal.Title>Update Blog</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+         <input type="text" placeholder="title" id='model'defaultValue={title} name="model" onChange={(e) => setEditTitle(e.target.value)}/>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleSubmit}>Save</Button>
+        </Modal.Footer>
+      </Modal>
+          
+           
         </div>
      
     </>

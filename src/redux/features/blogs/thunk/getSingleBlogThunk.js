@@ -1,17 +1,17 @@
-import { getSingleBlog } from "../blogActions";
+import { getSingleBlog1 } from "../blog/blogReducer";
 
-export const getSingleBlogThunk = (id,data) => {
-    console.log(data);
+
+
+
+
+export const getSingleBlogThunk = (id) => {
     return async(dispatch) => {
-        const response = fetch(`http://localhost:8000/blog/${id}`);
-        const data = await (await response).json();
-        console.log(data);
+        const response = await fetch(`http://localhost:8000/blog/${id}`);
+        const data = await response.json();
+        console.log(data)
+        dispatch(getSingleBlog1(data))
 
-       if(data.acknowledged){
-            dispatch(getSingleBlog({
-                _id: data.insertedId,
-                data}))
-            }
+   
         
         
 

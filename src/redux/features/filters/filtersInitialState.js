@@ -1,5 +1,6 @@
 export const filtersInitialState = {
     category:"",
-    title:""
+    title:"",
+    date:''
 
 }

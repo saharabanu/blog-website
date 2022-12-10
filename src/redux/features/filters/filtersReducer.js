@@ -1,5 +1,5 @@
 
-import { CLEAR_FILTER, FILTER_BY_CATEGORY, FILTER_BY_TITLE } from "./filtersActionTypes";
+import { CLEAR_FILTER, FILTER_BY_CATEGORY, FILTER_BY_TITLE, FIRST_UPLOAD, LAST_UPLOAD } from "./filtersActionTypes";
 import { filtersInitialState } from "./filtersInitialState";
 
 export const filtersReducer = (state= filtersInitialState, action) => {
@@ -16,6 +16,20 @@ export const filtersReducer = (state= filtersInitialState, action) => {
             return{
                 ...state,
                 title: action.payload
+
+            };
+        // filter by title reducer 
+        case FIRST_UPLOAD:
+            return{
+                ...state,
+                date: action.payload
+
+            };
+        // filter by title reducer 
+        case LAST_UPLOAD:
+            return{
+                ...state,
+                date: state.blogs.date === action.payload
 
             };
         // clear filter reducer 

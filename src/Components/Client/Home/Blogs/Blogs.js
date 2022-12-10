@@ -55,7 +55,7 @@ const Blogs = () => {
       }
       return blog
      })
-     .map(blog => <BlogView key = {blog?._id} blog={blog}/>)
+     .sort((a, b) => a.date > b.date).map(blog => <BlogView key = {blog?._id} blog={blog}/>)
      
    }
   
