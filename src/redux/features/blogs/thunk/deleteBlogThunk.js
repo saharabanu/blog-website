@@ -2,7 +2,7 @@ import { deleteBlog } from "../blogActions";
 
 export const deleteBlogThunk = (id) => {
     return async(dispatch) => {
-        const response = await fetch(`http://localhost:8000/blog/${id}`,{
+        const response = await fetch(`https://blog-website-server-api.onrender.com/blog/${id}`,{
             method:"DELETE",
             headers:{
                 "Content-type": "application/json"

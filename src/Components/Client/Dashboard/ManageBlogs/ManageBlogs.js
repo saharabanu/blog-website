@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Button, Col, Container, Form, Image, Modal, Row } from 'react-bootstrap';
 import Spinner from "react-bootstrap/Spinner";
@@ -11,24 +10,30 @@ import { getBlogThunk } from "../../../../redux/features/blogs/thunk/fetchBlogsT
 import EditBlogModal from "../../../modal/EditBlogModal";
 
 const ManageBlogs = () => {
-
+  const blog = useSelector(state => state.blog.blog);
   const {blogs, loading, error} = useSelector(state => state.blogs);
-  const b = blogs.map(blog => blog);
-  console.log(b);
   const dispatch = useDispatch();
+  const {title, desc1, author, image, desc2, category, date, desc3, _id} = blog || {};
+  
   const [editData, setEditData] = useState({});
   const [show, setShow] = useState(false);
 
   
-  const handleShow = (data) => {
-    setEditData(data)
+  const handleShow = (blog) => {
+    setEditData(blog)
     setShow(true)
 };
 
 // const [show, setShow] = useState(false);
 
 const [editTitle, setEditTitle] = useState("");
-const {title,_id} = data[0];
+const [editImage, setEditImage] = useState("");
+const [editCategory, setEditCategory] = useState("");
+const [editAuthor, setEditAuthor] = useState("");
+const [editDesc1, setEditDesc1] = useState("");
+const [editDesc2, setEditDesc2] = useState("");
+const [editDesc3, setEditDesc3] = useState("");
+
 // console.log(title);
 const handleClose = () => setShow(false);
 
@@ -42,13 +47,19 @@ const handleClose = () => setShow(false);
       e.preventDefault();
       
       dispatch(editBlogThunk(_id,{
-            ...data[0],
-          title: editTitle,
+        ...blog,
+            title: blog.editTitle,
+            image: editImage,
+            category: editCategory,
+            author: editAuthor,
+            desc1: editDesc1,
+            desc2: editDesc2,
+            desc3: editDesc3
           
           
         }))
       
-    console.log(data);
+    console.log(blog);
       
       setShow(false)
     };
@@ -128,7 +139,19 @@ const handleClose = () => setShow(false);
           <Modal.Title>Update Blog</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-         <input type="text" placeholder="title" id='model'defaultValue={title} name="model" onChange={(e) => setEditTitle(e.target.value)}/>
+         <input type="text" placeholder="title" id='title' defaultValue={title} name="title" onChange={(e) => setEditTitle(e.target.value)}/>
+
+         {/* <input type="text" placeholder="Img Url" id='image'defaultValue={image} name="image" onChange={(e) => setEditImage(e.target.value)}/>
+
+         <input type="text" placeholder="Category" id='category' defaultValue={category} name="category" onChange={(e) => setEditCategory(e.target.value)}/>
+
+         <input type="text" placeholder="Author" id='author'defaultValue={author} name="author" onChange={(e) => setEditAuthor(e.target.value)}/>
+
+         <input type="text" placeholder="desc1" id='desc1'defaultValue={desc1} name="model" onChange={(e) => setEditDesc1(e.target.value)}/>
+
+         <input type="text" placeholder="desc2" id='desc2'defaultValue={desc2} name="desc2" onChange={(e) => setEditDesc2(e.target.value)}/>
+
+         <input type="text" placeholder="desc3" id='desc3'defaultValue={desc3} name="desc3" onChange={(e) => setEditDesc3(e.target.value)}/> */}
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>

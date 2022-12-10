@@ -37,12 +37,9 @@ export const deleteBlog = ( id) => {
 };
 // edit blog action function 
 
-export const editBlog = ( id, blog) => {
+export const editBlog = ( blog) => {
     return {
         type:UPDATE_CONTENT,
-        payload: {
-            id, 
-            blog
-        }
+        payload: blog
     }
 };

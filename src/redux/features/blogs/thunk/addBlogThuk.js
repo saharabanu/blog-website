@@ -2,7 +2,7 @@ import { addBlog } from "../blogActions";
 
 export const addBlogThunk = (blog) => {
     return async (dispatch) => {
-        const response = await fetch("http://localhost:8000/blog",{
+        const response = await fetch("https://blog-website-server-api.onrender.com/blog",{
             method: "POST",
             body: JSON.stringify(blog),
             headers: {

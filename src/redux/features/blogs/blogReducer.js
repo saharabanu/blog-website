@@ -40,15 +40,7 @@ const blogReducer = (state= blogInitialState, action) =>{
         case UPDATE_CONTENT:
           return {
             ...state,
-            blogs: state.blogs.map(blog => {
-                if(blog._id !== action.payload.id){
-                    return blog;
-                }
-                return{
-                    ...state,
-                    blogs: action.payload.id
-                }
-            }),
+            blog: action.payload
             
         };
             

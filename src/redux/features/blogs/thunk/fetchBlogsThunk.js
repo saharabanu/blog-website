@@ -2,7 +2,7 @@ import { getBlog } from "../blogActions";
 
 export const getBlogThunk = () => {
     return async(dispatch) => {
-        const response = fetch('http://localhost:8000/blogs');
+        const response = fetch('https://blog-website-server-api.onrender.com/blogs');
         const data = await (await response).json();
         // console.log(data);
 
