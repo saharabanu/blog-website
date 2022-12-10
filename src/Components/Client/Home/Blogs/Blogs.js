@@ -3,12 +3,13 @@ import BlogView from "../BlogView/BlogView";
 import Spinner from "react-bootstrap/Spinner";
 import { useDispatch, useSelector } from "react-redux";
 import { getBlogThunk } from "../../../../redux/features/blogs/thunk/fetchBlogsThunk";
+import { clearFilter } from "../../../../redux/features/filters/filtersActions";
 
 
 const Blogs = () => {
   // data from initial state 
   const {blogs, loading, error} = useSelector(state => state.blogs);
-  const {category} = useSelector(state => state.filters);
+  const {category, title} = useSelector(state => state.filters);
   // console.log(blogs);
 
   // dispatch  
@@ -40,7 +41,7 @@ const Blogs = () => {
      content = blogs.map(blog => <BlogView key = {blog?._id} blog={blog}/>)
      
    }
-   if (!loading && !error && blogs.length && (category)  ) {
+   if (!loading && !error && blogs.length && (category || title)  ) {
      content = blogs
      .filter((blog) =>{
       if(category){
@@ -48,33 +49,23 @@ const Blogs = () => {
       }
       return blog
      })
+     .filter((blog) =>{
+      if(title){
+        return blog.title ===title
+      }
+      return blog
+     })
      .map(blog => <BlogView key = {blog?._id} blog={blog}/>)
      
    }
-  //  if (!loading && !error && products?.length && (stock || brands.length)) {
-  //    content = products
-  //    .filter((product) => {
-  //     if(stock){
-  //       return product.status === true;
-  //     }
-  //     return product;
-
-  //    })
-  //    .filter((product) =>{
-  //     if(brands.length){
-  //       return brands.includes(product.brand);
-  //     }
-  //     return product;
-  //    })
-  //    .map(product => <ProductCard key = {product._id} product={product}/>)
-     
-  //  }
+  
    
 
   return (
     <>
       <div className="container mb-3 " id="blogs">
         <h2 className="pb-4 text-center">Latest Blogs</h2>
+        {(category || title) &&<button onClick={() => dispatch(clearFilter())}> Clear</button>}
         <div className="row ">
         {content}
           {/* <div className="col-md-7">

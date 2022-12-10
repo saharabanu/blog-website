@@ -1,14 +1,19 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { filterByCategory } from "../../../../redux/features/filters/filtersActions";
+import { filterByCategory, filterByTitle } from "../../../../redux/features/filters/filtersActions";
 
 const BlogView = ({ blog }) => {
   const { _id, image, title, category, desc1 } = blog;
   const dispatch = useDispatch();
-
+//  filter by category handler function 
   const filterByCategoryHandler = (category) => {
     dispatch(filterByCategory(category))
+
+  }
+//  filter by category handler function 
+  const filterByFilterHandler = (title) => {
+    dispatch(filterByTitle(title))
 
 
   }
@@ -32,7 +37,7 @@ const BlogView = ({ blog }) => {
             </div>
             <div className="col-md-6">
               <div>
-                <h4>{title}</h4>
+                <h4 onClick={() => filterByFilterHandler(title)} style={{cursor:"pointer"}}>{title}</h4>
                 <p>{desc1.slice(0, 100)}</p>
                 <div className="blog-btn">
                   <Link to={`blog/${_id}` } style={{ color: "#9932cc" }} >
