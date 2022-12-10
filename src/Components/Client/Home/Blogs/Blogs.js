@@ -68,16 +68,7 @@ const Blogs = () => {
         {(category || title) &&<button onClick={() => dispatch(clearFilter())}> Clear</button>}
         <div className="row ">
         {content}
-          {/* <div className="col-md-7">
-            <div className="row gap-4">
-            {content}
-            </div>
-          </div>
-          <div className="col-md-5 gap-2">
-            <BlogSidebar className="">
-              <h3>Sidebar</h3>
-            </BlogSidebar>
-          </div> */}
+          
         </div>
       </div>
     </>
