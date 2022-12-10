@@ -1,0 +1,1 @@
+export const FILTER_BY_CATEGORY = 'filters/FILTER_BY_CATEGORY';

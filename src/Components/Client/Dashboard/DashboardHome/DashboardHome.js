@@ -43,31 +43,31 @@ const DashboardHome = () => {
                 Manage Blog
               </NavLink>
               <div className="py-2"></div>
-              <NavLink
+              {/* <NavLink
                 to={`/dashboard/makeAdmin`}
                 className="text-white"
                 style={{ textDecoration: "none" }}
               >
                 Add New Admin
-              </NavLink>
+              </NavLink> */}
               <div></div>
-              <button
+              <NavLink to="/"
                 onClick={handleLogout}
-                className="px-3 py-2 mt-4 rounded w-75"
+                className="text-white "
                 style={{ border: 0 }}
               >
-                Logout
-              </button>
+                Go  Home
+                </NavLink>
             </div>
           </aside>
           <main className="bodyContent pt-5 text-dark ">
-            {dash == undefined ? (
+            {dash === undefined ? (
               <h1>Welcome to Fashion Blog Admin</h1>
-            ) : dash == "addBlog" ? (
+            ) : dash === "addBlog" ? (
               <AddBlog />
-            ) : dash == "manageBlog" ? (
+            ) : dash === "manageBlog" ? (
               <ManageBlogs />
-            ) : dash == "makeAdmin" ? (
+            ) : dash === "makeAdmin" ? (
               <MakeAdmin />
             ) : (
               ""

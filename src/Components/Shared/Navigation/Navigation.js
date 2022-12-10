@@ -2,7 +2,7 @@ import React from "react";
 import { Navbar, Container, Nav } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import { HashLink } from "react-router-hash-link";
-import useAuth from "../../Hooks/useAuth";
+
 
 let navStyle = {
   textDecoration: "underline",
@@ -11,7 +11,7 @@ let navStyle = {
 };
 
 const Navigation = () => {
-  const {user,logOut} = useAuth();
+ 
   return (
     <>
       <Navbar bg="" expand="lg" sticky="top" className="header-full">
@@ -51,17 +51,17 @@ const Navigation = () => {
               >
                 Blogs
               </NavLink>
+              <NavLink
+                className="nav-items"
+                as={HashLink}
+                to="/dashboard"
+                style={({ isActive }) => (isActive ? navStyle : null)}
+              >
+               Dashboard
+              </NavLink>
             </Nav>
             <Nav>
-            {user?.email ? <><button onClick={logOut} className="notfound-btn">Logout</button></>
-                        :<NavLink className="nav-login " to="/login">
-                Login
-              </NavLink>
-                        }
 
-                        
-                        <h4 className="text-white">{ user?.displayName}</h4>
-              
             </Nav>
           </Navbar.Collapse>
         </Container>

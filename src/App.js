@@ -3,18 +3,13 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Components/Client/Home/Home/Home";
 import NotFound from "./Components/Client/Pages/NotFound/NotFound";
-import Login from "./Components/Client/Login/Login/Login";
-import SignUp from "./Components/Client/Login/SignUp/SignUp";
 import Dashboard from "./Components/Client/Dashboard/Dashboard/Dashboard";
 import SingleBlog from "./Components/Client/Pages/SingleBlog/SingleBlog";
 import { useEffect, useState } from "react";
 import { BeatLoader } from "react-spinners";
 import About from "./Components/Client/Pages/About/About";
 import Contact from "./Components/Client/Pages/Contact/Contact";
-import ManageBlogs from "./Components/Client/Dashboard/ManageBlogs/ManageBlogs";
-import AddBlog from "./Components/Client/Dashboard/AddBlog/AddBlog";
-import MakeAdmin from "./Components/Client/Dashboard/MakeAdmin/MakeAdmin";
-import AuthProvider from "./Components/contexts/AuthProvider";
+
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -38,7 +33,7 @@ function App() {
           />
         </div>
       ) : (
-        <AuthProvider>
+        
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Home />} />
@@ -46,19 +41,13 @@ function App() {
             <Route path="/blog/:id" element={<SingleBlog />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signUp" element={<SignUp />} />
-
+           
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="/dashboard/:dash" element={<Dashboard />} />
-            {/* <Route path={`/dashboard/manageBlog`} element={<ManageBlogs />} />
-              <Route path={`/dashboard/addBlog`} element={<AddBlog />} />
-              <Route path={`/dashboard/makeAdmin`} element={<MakeAdmin />} /> */}
-
             <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
-        </AuthProvider>
+       
       )}
     </div>
   );
